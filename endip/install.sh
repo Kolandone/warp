@@ -1,4 +1,88 @@
-#!/bin/bash
+endipv4() {
+	n=0
+	iplist=100
+	while true; do
+		temp[$n]=$(echo 162.159.192.$(($RANDOM % 256)))
+		n=$(($n + 1))
+		if [ $n -ge $iplist ]; then
+			break
+		fi
+		temp[$n]=$(echo 162.159.193.$(($RANDOM % 256)))
+		n=$(($n + 1))
+		if [ $n -ge $iplist ]; then
+			break
+		fi
+		temp[$n]=$(echo 162.159.195.$(($RANDOM % 256)))
+		n=$(($n + 1))
+		if [ $n -ge $iplist ]; then
+			break
+		fi
+		temp[$n]=$(echo 188.114.96.$(($RANDOM % 256)))
+		n=$(($n + 1))
+		if [ $n -ge $iplist ]; then
+			break
+		fi
+		temp[$n]=$(echo 188.114.97.$(($RANDOM % 256)))
+		n=$(($n + 1))
+		if [ $n -ge $iplist ]; then
+			break
+		fi
+		temp[$n]=$(echo 188.114.98.$(($RANDOM % 256)))
+		n=$(($n + 1))
+		if [ $n -ge $iplist ]; then
+			break
+		fi
+		temp[$n]=$(echo 188.114.99.$(($RANDOM % 256)))
+		n=$(($n + 1))
+		if [ $n -ge $iplist ]; then
+			break
+		fi
+	done
+	while true; do
+		if [ $(echo "${temp[@]}" | sed -e 's/ /\n/g' | sort -u | wc -l) -ge $iplist ]; then
+			break
+		else
+			temp[$n]=$(echo 162.159.192.$(($RANDOM % 256)))
+			n=$(($n + 1))
+		fi
+		if [ $(echo "${temp[@]}" | sed -e 's/ /\n/g' | sort -u | wc -l) -ge $iplist ]; then
+			break
+		else
+			temp[$n]=$(echo 162.159.193.$(($RANDOM % 256)))
+			n=$(($n + 1))
+		fi
+		if [ $(echo "${temp[@]}" | sed -e 's/ /\n/g' | sort -u | wc -l) -ge $iplist ]; then
+			break
+		else
+			temp[$n]=$(echo 162.159.195.$(($RANDOM % 256)))
+			n=$(($n + 1))
+		fi
+		if [ $(echo "${temp[@]}" | sed -e 's/ /\n/g' | sort -u | wc -l) -ge $iplist ]; then
+			break
+		else
+			temp[$n]=$(echo 188.114.96.$(($RANDOM % 256)))
+			n=$(($n + 1))
+		fi
+		if [ $(echo "${temp[@]}" | sed -e 's/ /\n/g' | sort -u | wc -l) -ge $iplist ]; then
+			break
+		else
+			temp[$n]=$(echo 188.114.97.$(($RANDOM % 256)))
+			n=$(($n + 1))
+		fi
+		if [ $(echo "${temp[@]}" | sed -e 's/ /\n/g' | sort -u | wc -l) -ge $iplist ]; then
+			break
+		else
+			temp[$n]=$(echo 188.114.98.$(($RANDOM % 256)))
+			n=$(($n + 1))
+		fi
+		if [ $(echo "${temp[@]}" | sed -e 's/ /\n/g' | sort -u | wc -l) -ge $iplist ]; then
+			break
+		else
+			temp[$n]=$(echo 188.114.99.$(($RANDOM % 256)))
+			n=$(($n + 1))
+		fi
+	done
+}#!/bin/bash
 
 #colors
 red='\033[0;31m'
@@ -14,121 +98,6 @@ x86_64 | x64 | amd64)
 	cpu=amd64
 	;;
 i386 | i686)
-endipv4() {
-    n=0
-    iplist=100
-    while true; do
-        temp[$n]=$(echo 162.159.192.$(($RANDOM % 256)))
-        n=$(($n + 1))
-        if [ $n -ge $iplist ]; then
-            break
-        fi
-        temp[$n]=$(echo 162.159.193.$(($RANDOM % 256)))
-        n=$(($n + 1))
-        if [ $n -ge $iplist ]; then
-            break
-        fi
-        temp[$n]=$(echo 162.159.195.$(($RANDOM % 256)))
-        n=$(($n + 1))
-        if [ $n -ge $iplist ]; then
-            break
-        fi
-        temp[$n]=$(echo 188.114.96.$(($RANDOM % 256)))
-        n=$(($n + 1))
-        if [ $n -ge $iplist ]; then
-            break
-        fi
-        temp[$n]=$(echo 188.114.97.$(($RANDOM % 256)))
-        n=$(($n + 1))
-        if [ $n -ge $iplist ]; then
-            break
-        fi
-        temp[$n]=$(echo 188.114.98.$(($RANDOM % 256)))
-        n=$(($n + 1))
-        if [ $n -ge $iplist ]; then
-            break
-        fi
-        temp[$n]=$(echo 188.114.99.$(($RANDOM % 256)))
-        n=$(($n + 1))
-        if [ $n -ge $iplist ]; then
-            break
-        fi
-        # New IP range added here
-        temp[$n]=$(echo 8.18.196.$(($RANDOM % 256)))
-        n=$(($n + 1))
-        if [ $n -ge $iplist ]; then
-            break
-        fi
-    done
-    while true; do
-        if [ $(echo "${temp[@]}" | sed -e 's/ /\n/g' | sort -u | wc -l) -ge $iplist ]; then
-            break
-        else
-            temp[$n]=$(echo 162.159.192.$(($RANDOM % 256)))
-            n=$(($n + 1))
-        fi
-        if [ $(echo "${temp[@]}" | sed -e 's/ /\n/g' | sort -u | wc -l) -ge $iplist ]; then
-            break
-        else
-            temp[$n]=$(echo 162.159.193.$(($RANDOM % 256)))
-            n=$(($n + 1))
-        fi
-        if [ $(echo "${temp[@]}" | sed -e 's/ /\n/g' | sort -u | wc -l) -ge $iplist ]; then
-            break
-        else
-            temp[$n]=$(echo 162.159.195.$(($RANDOM % 256)))
-            n=$(($n + 1))
-        fi
-        if [ $(echo "${temp[@]}" | sed -e 's/ /\n/g' | sort -u | wc -l) -ge $iplist ]; then
-            break
-        else
-            temp[$n]=$(echo 188.114.96.$(($RANDOM % 256)))
-            n=$(($n + 1))
-        fi
-        if [ $(echo "${temp[@]}" | sed -e 's/ /\n/g' | sort -u | wc -l) -ge $iplist ]; then
-            break
-        else
-            temp[$n]=$(echo 188.114.97.$(($RANDOM % 256)))
-            n=$(($n + 1))
-        fi
-        if [ $(echo "${temp[@]}" | sed -e 's/ /\n/g' | sort -u | wc -l) -ge $iplist ]; then
-            break
-        else
-            temp[$n]=$(echo 188.114.98.$(($RANDOM % 256)))
-            n=$(($n + 1))
-        fi
-        if [ $(echo "${temp[@]}" | sed -e 's/ /\n/g' | sort -u | wc -l) -ge $iplist ]; then
-            break
-        else
-            temp[$n]=$(echo 188.114.99.$(($RANDOM % 256)))
-            n=$(($n + 1))
-        fi
-    done
-}
-	cpu=386
-	;;
-armv8 | armv8l | arm64 | aarch64)
-	cpu=arm64
-	;;
-armv7l)
-	cpu=arm
-	;;
-*)
-	echo "The current architecture is $(uname -m), not supported"
-	exit
-	;;
-esac
-
-cfwarpIP() {
-	if [[ ! -f "$PREFIX/bin/warpendpoint" ]]; then
-		echo "Downloading warpendpoint program"
-		if [[ -n $cpu ]]; then
-			curl -L -o warpendpoint -# --retry 2 https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/$cpu
-			cp warpendpoint $PREFIX/bin
-			chmod +x $PREFIX/bin/warpendpoint
-		fi
-	fi
-}
 
 
 endipv6() {
